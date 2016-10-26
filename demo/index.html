@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Service Worker Demo</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/index.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="container">
+            <!-- Static navbar -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed"
+                                data-toggle="collapse" data-target="#navbar"
+                                aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Demo</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="/reset/">Reset</a></li>
+                            <li><a href="#">Page 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="row">
+                <article class="col-sm-6">
+                    <div class="h4">Registration</div>
+                    <p>The <code>navigator.serviceWorker.register()</code> call <strong class="js-register-result label label-default">is pending</strong>.</p>
+                    <p>The current registration represents the <strong class="js-registration-state label label-default">unknown</strong> service worker.</p>
+                    <ol class="js-registration-activity"></ol>
+                </article>
+                <article class="col-sm-6">
+                    <div class="h4">Control</div>
+                    <p>This page <strong class="js-controller-state label label-default">is not</strong> currently controlled.</p>
+                </article>
+            </section>
+
+            <section class="row">
+                <article class="col-sm-6">
+                    <div class="h4">Activity</div>
+                    <ol class="js-activity"></ol>
+                </article>
+                <article class="col-sm-6">
+                    <button class="js-test">Test</button>
+                </article>
+            </section>
+
+            <div class="well">chrome://serviceworker-internals/</div>
+
+        </div>
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+{
+    "name": "bastientanesie/presentation-service-worker",
+    "description": "A quick presentation of Service Worker (HTML5), demonstrating its basic offline capabilities.",
+    "scripts": {
+        "serve": "php -S localhost:8888 -t demo/"
+    }
+}
