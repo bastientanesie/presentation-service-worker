@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Let's talk about Service Workers</title>
+        <link rel="icon" href="assets/img/poolparty.gif" type="image/gif" />
+        <meta name="description" content="Let's talk about Service Workers">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <link rel="stylesheet" href="libs/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="libs/reveal.js/css/theme.black.css" id="theme">
+        <link rel="stylesheet" href="libs/reveal.js/css/zenburn.css">
+        <link rel="stylesheet" href="assets/style.css">
+        <!--[if lt IE 9]>
+        <script src="libs/reveal.js/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <a id="wixiweb-logo" href="http://www.wixiweb.fr">
+            <img src="assets/img/wixiweb-icon.png" />
+        </a>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section>
+                    <h4>Let's talk about</h4>
+                    <img src="assets/img/html5-badge.svg" alt="HTML5" class="unstyled" style="max-height: 200px;" />
+                    <h1>Service Workers</h1>
+                    <p>
+                        <small>
+                            <a href="https://twitter.com/bastientanesie" title="Retrouvez-moi sur Twitter">@BastienTanésie</a>
+                            / <a href="http://wixiweb.fr" title="Wixiweb : c'est nous qu'on fait le Web !">Wixiweb</a>
+                            / LFT #7
+                        </small>
+                    </p>
+                    <p class="tiny">Copyright &copy; 2016, Wixiweb</p>
+                </section>
+                
+                <section>
+                    
+                    <section>
+                        <h2>Web Worker, quésaco ?</h2>
+                        
+                        <ul>
+                            <li>Script JS en tâche de fond</li>
+                            <li class="fragment">Séparation front (UI) / back (tâches lourdes)</li>
+                            <li class="fragment">Contexte spécifique, séparé de l'UI (<code class="inline">window</code>, <i>DOM</i>)</li>
+                            <li class="fragment">Communication à base de <i>Messages</i> et d'<i>Event Listeners</i></li>
+                            <li class="fragment">HTTPS-only</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Web Worker, quésaco ?</h2>
+
+                        <p>Plein d'<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers" target="_blank">APIs</a> cool !</p>
+
+                        <ul>
+                            <li class="fragment">IndexedDB</li>
+                            <li class="fragment">Fetch & XHR</li>
+                            <li class="fragment">Cache</li>
+                            <li class="fragment">Notification</li>
+                            <li class="fragment">WebSocket</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Shared Worker</h2>
+
+                        <p>Utilisable par différentes fenêtres (voire iframe) ayant le <u>même domaine</u> que le Worker.</p>
+                    </section>
+
+                    <section>
+                        <h2>Service Worker</h2>
+
+                        <p>Agit en tant que proxy entre la page et le réseau.</p>
+                    </section>
+
+                    <section>
+                        <h2>Audio Worker</h2>
+
+                        <p><i>Because reasons</i></p>
+                    </section>
+
+                    <section>
+                        <h2>Some code ffs</h2>
+
+                        <pre><code data-trim class="javascript">
+if (window.Worker) {
+    var myWorker = new Worker("worker.js");
+
+    myWorker.postMessage("Hello, is it me you're looking for?");
+
+    myWorker.addEventListener("message", function(event) {
+        console.log("Message from worker", event.data);
+    });
+}
+                        </code></pre>
+                    </section>
+
+                    <section data-background="#dddddd">
+                        <h2 style="color: #000000;">Lifecycle</h2>
+
+                        <img src="assets/img/sw-lifecycle.png" alt="Service worker lifecycle" class="unstyled" />
+                    </section>
+
+                </section><!-- Théorie -->
+
+                <section>
+
+                    <section>
+                        <h2>Now what?</h2>
+
+                        <img src="assets/img/scepticism.jpg" alt="Scepticism" class="unstyled" />
+                    </section>
+
+                    <section>
+                        <h2>Now what?</h2>
+
+                        <a href="https://serviceworke.rs" target="_blank">
+                            <img src="assets/img/live-demo.jpg" alt="Live demo" class="unstyled" />
+                        </a>
+                    </section>
+
+                </section><!-- Live Demo Playground -->
+
+                <section>
+
+                    <section>
+                        <h2>The End?</h2>
+
+                        <a href="http://localhost:5555/" target="_blank">
+                            <img src="assets/img/no-demo.jpg" alt="No demo?" class="unstyled" />
+                        </a>
+                    </section>
+
+                </section><!-- Pratique théorique -->
+
+                <section>
+                    
+                    <section data-background="assets/img/rock-your-body.gif">
+                        <h1 class="text-shadow mgb">
+                            <img src="assets/img/sparkles.png" class="unstyled">
+                            The end
+                            <img src="assets/img/sparkles.png" class="unstyled nomg">
+                        </h1>
+                        <h2 class="text-shadow">Merci</h2>
+                    </section>
+                    
+                </section><!-- The end -->
+
+            </div><!-- .slides -->
+        </div>
+
+        <script src="libs/reveal.js/js/head.min.js"></script>
+        <script src="libs/reveal.js/js/reveal.js"></script>
+        <script src="assets/main.js"></script>
+    </body>
+</html>
